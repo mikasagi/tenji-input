@@ -9,8 +9,6 @@ export function brailleFromDots(dots: boolean[]): string {
 export function transrateBraille(brailleText: string): string {
   const transratedText: string[] = [];
   const UNKNOWN = '?';
-  let isAlphabet = false;
-  let isNumber = false;
 
   for (let i = 0; i < brailleText.length; i++) {
     let c = brailleText.charAt(i);

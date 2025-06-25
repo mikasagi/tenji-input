@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "点字入力・変換",
+  title: "点字入力・翻訳",
   description: "Tenji input & translate. Japanese Only.",
 };
 
@@ -24,7 +24,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"></link>
+      <head>
+        <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-8DR3K10VH5"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){ dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-8DR3K10VH5');
+          `,
+          }}
+      />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
