@@ -9,13 +9,37 @@ export function brailleFromDots(dots: boolean[]): string {
 export function transrateBraille(brailleText: string): string {
   const transratedText: string[] = [];
   const UNKNOWN = '?';
+  let isNumMode = false;
 
   for (let i = 0; i < brailleText.length; i++) {
     let c = brailleText.charAt(i);
 
-    if(c == String.fromCharCode(0x2800)) {
-      transratedText.push(" ");
+    // 数字符
+    if(c == '⠼'){
+      isNumMode = true;
       continue;
+    }
+
+    // 空白
+    if(c == '⠀') {
+      transratedText.push(" ");
+      isNumMode = false;
+      continue;
+    }
+
+    // つなぎ符
+    if(c == '⠤') {
+      isNumMode = false;
+      continue;
+    }
+
+    // 数字モード
+    if(isNumMode){
+      if(c in numberMap){
+        transratedText.push(numberMap[c]);
+        continue;
+      }
+      isNumMode = false;
     }
 
     // 2文字
@@ -28,18 +52,26 @@ export function transrateBraille(brailleText: string): string {
       }
     }
 
+    // 1文字
     if(c in singleMap) {
       transratedText.push(singleMap[c]);
+      continue;
     }
-    else {
-      transratedText.push(UNKNOWN);
-    }
+    
+    // どれにも当てはまらない
+    transratedText.push(UNKNOWN);
   }
 
   return transratedText.join("");
 }
 
 const specialCalacters: string[] = ['⠠', '⠐', '⠈', '⠘', '⠨'];
+
+const numberMap: {[key:string]:string} = {
+  "⠁": "１", "⠃": "２", "⠉": "３", "⠙": "４", "⠑": "５",
+  "⠋": "６", "⠛": "７", "⠓": "８", "⠊": "９", "⠚": "０",
+  "⠂": "．", "⠄": "，",
+}
 
 const singleMap: {[key:string]:string} = {
   "⠁": "あ", "⠃": "い", "⠉": "う", "⠋": "え", "⠊": "お",
