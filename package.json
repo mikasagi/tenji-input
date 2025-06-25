@@ -1,5 +1,5 @@
 {
-  "name": "transdot",
+  "name": "tenji-input",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -24,7 +24,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "gh-pages": "^6.3.0",
-    "tailwindcss": "^4",
+    "tailwindcss": "^4.1.10",
     "typescript": "^5"
   }
 }

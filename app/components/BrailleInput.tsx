@@ -9,7 +9,6 @@ import { toast } from 'sonner';
 export default function BrailleInput() {
   const [dots, setDots] = useState<boolean[]>(Array(6).fill(false));
   const [brailleText, setBrailleText] = useState('');
-  const textRef = useRef<HTMLTextAreaElement>(null);
 
   const toggleDot = (index: number) => {
     const newDots = [...dots];
@@ -71,7 +70,7 @@ export default function BrailleInput() {
         </button>
       </div>
       <textarea
-        className="border border-black rounded w-80 h-20 p-2 text-base tracking-wider font-mono bg-gray-200 resize-none"
+        className="sixbraille_p border border-black rounded w-80 h-20 p-2 text-base tracking-wider font-mono bg-gray-200 resize-none"
         style={{ whiteSpace: 'pre-wrap', wordBreak: 'break-word' }}
         value={brailleText}
         readOnly

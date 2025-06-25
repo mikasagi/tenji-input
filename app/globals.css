@@ -33,3 +33,12 @@ body {
 .animate-blink {
   animation: blink 1s step-start infinite;
 }
+
+@font-face{
+  font-family: 'sixbraille00';
+  src: url('./sixbraille00.woff2') format('woff2');
+}
+
+.sixbraille_p { 
+  font-family: 'sixbraille00'; font-size: 1.2rem; 
+}
