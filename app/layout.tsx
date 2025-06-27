@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "点字入力・翻訳",
-  description: "Tenji input & translate. Japanese Only.",
+  description: "手入力した点字をリアルタイム翻訳。日本語のみ対応。Tenji input & translate. Japanese Only.",
 };
 
 export default function RootLayout({
