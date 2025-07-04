@@ -2,7 +2,7 @@
 
 import { useState, useRef } from 'react';
 import BrailleDot from './BrailleDot';
-import * as brailleMap from './brailleHelper';
+import * as brailleHelper from './brailleHelper';
 import { Copy, Delete } from 'lucide-react';
 import { toast } from 'sonner';
 
@@ -17,7 +17,7 @@ export default function BrailleInput() {
   };
 
   const addBraille = () => {
-    const brailleChar = brailleMap.brailleFromDots(dots);
+    const brailleChar = brailleHelper.brailleFromDots(dots);
     setBrailleText((prev) => prev + brailleChar);
     setDots(Array(6).fill(false));
   };
@@ -80,7 +80,7 @@ export default function BrailleInput() {
       <div className="flex justify-between items-end ml-1">
         <span className="text-sm font-semibold text-gray-700">日本語テキスト</span>
         <button
-          onClick={() => {copyToClipboard(brailleMap.transrateBraille(brailleText))}}
+          onClick={() => {copyToClipboard(brailleHelper.transrateBraille(brailleText))}}
           className="p-1 rounded hover:bg-gray-100 text-gray-600 hover:text-gray-900 transition-colors"
           aria-label="コピー"
         >
@@ -90,7 +90,7 @@ export default function BrailleInput() {
       <textarea
         className="border border-black rounded w-80 h-20 p-2 text-base tracking-wider font-mono bg-gray-200 resize-none"
         style={{ whiteSpace: 'pre-wrap', wordBreak: 'break-word' }}
-        value={brailleMap.transrateBraille(brailleText)}
+        value={brailleHelper.transrateBraille(brailleText)}
         readOnly
         onFocus={(e) => e.target.select()}
       />
