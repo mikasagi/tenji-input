@@ -2,7 +2,7 @@
 
 import { useState, useRef } from 'react';
 import BrailleDot from './BrailleDot';
-import * as brailleHelper from './brailleHelper';
+import * as brailleHelper from '../lib/brailleHelper';
 import { Copy, Delete } from 'lucide-react';
 import { toast } from 'sonner';
 
