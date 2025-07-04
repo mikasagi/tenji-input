@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "点字入力・翻訳",
-  description: "手入力した点字をリアルタイム翻訳。日本語のみ対応。Tenji input & translate. Japanese Only.",
+  title: "点字入力・翻訳ツール｜リアルタイム点字変換",
+  description: "点字表を見なくても点字の内容を即座に確認できる、点字翻訳ツール。入力パッドで点字入力して即変換。ひらがな・数字・英字に対応。",
 };
 
 export default function RootLayout({
